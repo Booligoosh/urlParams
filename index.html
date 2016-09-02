@@ -55,7 +55,7 @@
         values.push(urlParams[keys[i]]);
       }
       for (var i = 0; i < keys.length; i++) {
-        var t1 = 'urlParams.' keys[i];
+        var t1 = 'urlParams.' + keys[i];
         var t2 = '=> ' + values[i];
         var e = document.createElement("code");
         var node = document.createTextNode(t1);
