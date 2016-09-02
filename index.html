@@ -3,6 +3,12 @@
   <head>
     <title>URLparams</title>
     <script src="urlparams.js"></script>
+    <style>
+      .res {
+        font-style: italic;
+        color: #b3b3b3;
+      }
+    </style>
   </head>
   <body>
     <h1>URLparams</h1>
@@ -11,7 +17,7 @@
     <p>Of course, you can also use urlParams['parameter']</p>
     <div id='eg2'></div>
     <p>All you need to do is place this code in the head of your HTML, and you can reference urlParams in all your scripts</p>
-    <code id="cp"></code>
+    <code id="cp">&lt;script src="https://booligoosh.github.io/urlParams/urlParams.js"&gt;&lt;/script&gt;</code>
     <script>
       // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
       if (!Object.keys) {
@@ -78,7 +84,6 @@
         var b = document.createElement("br");
         p.appendChild(b);
       }
-      document.getElementById('cp').innerHTML = '<script src="https://booligoosh.github.io/urlParams/urlParams.js">\</script>'
     </script>
   </body>
 </html>
