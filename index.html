@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>URLparams</h1>
-    <code id="eg1"></code>
+    <div id="eg1"></div>
     <script>
       // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
       if (!Object.keys) {
@@ -54,11 +54,22 @@
       for (var i = 0; i < keys.length; i++) {
         values.push(urlParams[keys[i]]);
       }
-      var t = '';
       for (var i = 0; i < keys.length; i++) {
-        t = t + keys[i] + '\n' + '<span> => ' + values[i] + '</span>\n';
+        var t1 = keys[i];
+        var t2 = '=> ' + values[i];
+        var e = document.createElement("code");
+        var node = document.createTextNode(t1);
+        e.appendChild(node);
+        var p = document.getElementById("eg1");
+        p.appendChild(e);
+        var e = document.createElement("code");
+        var node = document.createTextNode(t2);
+        e.appendChild(node);
+        e.className = 'res'
+        var p = document.getElementById("eg1");
+        p.appendChild(e);
       }
-      document.getElementById('eg1').innerHTML = t;
+
     </script>
   </body>
 </html>
