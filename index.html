@@ -3,8 +3,62 @@
   <head>
     <title>URLparams</title>
     <script src="urlparams.js"></script>
+    <script>
+      // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+      if (!Object.keys) {
+        Object.keys = (function() {
+    'use strict';
+    var hasOwnProperty = Object.prototype.hasOwnProperty,
+        hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
+        dontEnums = [
+          'toString',
+          'toLocaleString',
+          'valueOf',
+          'hasOwnProperty',
+          'isPrototypeOf',
+          'propertyIsEnumerable',
+          'constructor'
+        ],
+        dontEnumsLength = dontEnums.length;
+
+    return function(obj) {
+      if (typeof obj !== 'object' && (typeof obj !== 'function' || obj === null)) {
+        throw new TypeError('Object.keys called on non-object');
+      }
+
+      var result = [], prop, i;
+
+      for (prop in obj) {
+        if (hasOwnProperty.call(obj, prop)) {
+          result.push(prop);
+        }
+      }
+
+      if (hasDontEnumBug) {
+        for (i = 0; i < dontEnumsLength; i++) {
+          if (hasOwnProperty.call(obj, dontEnums[i])) {
+            result.push(dontEnums[i]);
+          }
+        }
+      }
+      return result;
+    };
+  }());
+      }
+      var values = [];
+      var keys = Object.keys(URLparams);
+      for (var i = 0; i < keys.length; i++) {
+        values.push(URLparams.[keys[i]]);
+      }
+      var t = '';
+      for (var i = 0; i < keys.length; i++) {
+        t = t + keys[i] + '\n' + '<span> => ' + values[i] + '</span>\n';
+      }
+      document.getElementById('eg1').innerHTML = t;
+    </script>
   </head>
   <body>
     <h1>URLparams</h1>
+    <code id="eg1"></code>
   </body>
 </html>
